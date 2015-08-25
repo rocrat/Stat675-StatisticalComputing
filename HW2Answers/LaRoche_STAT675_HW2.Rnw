@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{amsmath}
+\title{STAT 675 Homework \# 2}
+\author{Dominic LaRoche}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+<<frontmatter,echo=FALSE,message=FALSE>>=
+require(xtable)
+@
+
+\item[5.1] Compute a Monte Carlo estimate of $\int_0^{\pi/3} sinttdt$\\
+<<fiveone>>=
+set.seed(36)
+m<-10000
+x<-runif(m,min=0,max=pi/3)
+theta.hat<-mean(sin(x))*(pi/3)
+theta<-cos(0)-cos(pi/3)#could just set this to .5 but shwowing the calc to be clear
+theta.hat-theta
+rm(theta.hat,theta,x)
+@
+Not impressively accurate with 10,000 samples.
+
+\item[5.3] Monte Carlo estimate of $\int_0^{0.5} e^{-x}dx$ with a uniform and exponential.  Since the integrand is a pdf we can estimate directly by taking sample, $Y$, from this pdf and applying the indicator function $I(Y \leq x)$.\\
+<<fivethree,results='asis'>>=
+x<-runif(m,min=0,max=0.5)
+y<-rexp(m)<=0.5
+theta.hat<-.5*mean(exp(-x))
+theta.star<-mean(y)
+var.theta.hat<-(.25/m)*var(exp(-x))
+var.theta.star<-(theta.star*(1-theta.star))/m
+r<-matrix(c(theta.hat,theta.star,var.theta.hat,var.theta.star),2,2)
+rownames(r)<-c("theta.hat","theta.star")
+colnames(r)<-c("Theta","Var.Theta")
+tbl1<-xtable(r,caption="The estimates and estimated variances from two estimates of theta.")
+digits(tbl1)<-10
+print(tbl1)
+rm(x,y,theta.hat,theta.star,var.theta.hat,var.theta.star,r,tbl1)
+@
+Since the inegrand is close to .5 the variance of the binomial is maximized and the indicator estimate has a large variance.
+
+\item[5.4]  Function for cdf of Beta(3,3) = $\int_0^y 30x^2(1-x)^2dx$.\\
+<<five4,results='asis'>>=
+betacdf<-function(x,m){
+  theta<-rep(0,length(x))
+  for(i in 1:length(x)){
+    u<-rbeta(m,3,3)<=x[i]
+    theta[i]<-mean(u)#(30*u^2*(1-u)^2)*x
+  }
+  return(theta)
+}
+x<-seq(0,1,.1)
+r<-matrix(c(betacdf(x=x,m=1000000),pbeta(x,3,3)),2,11,byrow=TRUE)
+colnames(r)<-x
+rownames(r)<-c("My function","R function")
+tbl<-xtable(r,caption="The estimates from a simple mote-carlo estimate and the R function.")
+digits(tbl)<-4
+print(tbl)
+rm(x,r,tbl)
+@
+My function does a pretty good job.\\
+
+\item[5.6]  Improvement in antithetic estimation of $\int_0^1e^xdx$.\\
+$$Var\left(\frac{e^u+e^{1-u}}{2}\right)=\frac{1}{4}\left[Var(e^u)+Var(e^{1-u})+2Cov(e^u,e^{1-u})\right]$$
+$$=\frac{1}{4}\left[2Var(e^u)+2\left(Ee^ue^{1-u}-Ee^uEe^{1-u}\right)\right]$$
+$$Note:Ee^ue^{1-u}=Ee=e$$
+$$Also:Ee^{1-u}=\int_0^1e^{1-u}du=\left. -e^{1-u}\right|_0^1 = -e^0+e^1 = e-1 = Ee^u$$
+Therefore:
+$$Var\left(\frac{e^u+e^{1-u}}{2}\right) =\frac{1}{4}\left[2Var(e^u)+2\left(e-(e-1)^2\right)\right]$$
+$$ = \frac{1}{2} \left[ \left(\frac{e^2-1}{2}-(e-1)^2\right)+\left(e-(e-1)^2\right)\right]$$
+This is computed below
+<<five6>>=
+print(v.anti<-.5*(((exp(1)^2-1)/2)-(exp(1)-1)^2+(exp(1)-((exp(1)-1)^2))))
+@
+From the book the variance of the simple Monte Carlo estimate is 0.1210178 so the variance reduction is:
+<<reduct>>=
+100*((0.1210178-v.anti)/0.1210178)
+@
+
+\item[5.7]
+<<five7>>=
+anti<-function(m){#function to comput the antithetic estimate
+  u<-runif(m/2)
+  v<-1-u
+  theta<-mean((exp(u)+exp(v))/2)
+  v<-var((exp(u)+exp(v))/2)
+  return(c(theta,v))
+}
+theta.ant<-anti(m=m)
+simple<-function(m){#function to comput the simple estimate
+  u<-runif(m/2)
+  v<-runif(m/2)
+  theta<-mean((exp(u)+exp(v))/2)
+  v<-var((exp(u)+exp(v))/2)
+  return(c(theta,v))
+}  
+theta.simp<-simple(m=m)
+theta.ant[1]#estimate
+theta.simp[1]
+theta.ant[2]
+theta.simp[2]
+
+reduction<-100*((theta.simp[2]-theta.ant[2])/theta.simp[2])#reduction in the variance of the means
+reduction
+@
+\item[5.8] Show that $\rho(X,X^{\prime})=-1$.\\
+$$\rho(X,X^{\prime})= \frac{Cov(X,X^{\prime})}{\sqrt{Var(X)Var(x^{\prime})}} = \frac{Cov(aU,a(1-U))}{sqrt{Var(aU)Var(a(1-U))}}$$
+
+$$ = \frac{E\left[aU(a(1-U))\right]-E(aU)E(a(1-U))}{\sqrt{a^2Var(U)a^2Var(1-U)}} = \frac{a^2E(U-U^2)-aEU(a-aEU)}{a^2Var(U)}$$
+ 
+$$ = \frac{a^2EU-a^2EU^2-\left[ a^2EU - a^2(EU)^2\right]}{a^2Var(U)} = \frac{EU-EU^2-EU-(EU)^2}{Var(U)} = \frac{-EU^2+(EU^2)}{Var(U)}$$
+ 
+$$ = \frac{-1(Var(U))}{Var(U)} = -1$$
+ 
+The result would hold for any random variable with exisitng first and second moments.\\
+
+\item[5.14] Obtain a Monte Carlo estimate of $\int_1^{\inf}\frac{x^2}{\sqrt{2\pi}}e^{-x^2/2}dx$ by importance sampling.\\
+I will use the pareto as my weighting distribution because it is the only distribution I could find in the back of Casella and Berger that could have the same support.\\
+<<five14,message=FALSE>>=
+require(VGAM)
+p<-rpareto(m, 1,1)
+g<-function(x) ((x^2)/sqrt(2*pi))*exp(-x^2/2)
+fg<-g(p)/dpareto(p,1,1)
+theta.hat<-mean(fg)
+theta.hat
+@
+\end{itemize}
+\end{document}

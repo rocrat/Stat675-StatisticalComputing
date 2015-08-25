@@ -1,0 +1,284 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{fullpage}
+\usepackage[colorlinks=true,linkcolor=blue]{hyperref}
+\usepackage{amsmath}
+\title{STAT 675 Homework \# 2}
+\author{Dominic LaRoche}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\begin{document}
+\maketitle
+
+\begin{itemize}
+
+
+
+\item[5.1] Compute a Monte Carlo estimate of $\int_0^{\pi/3} sinttdt$\\
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}(36)
+m <- 10000
+x <- \hlkwd{runif}(m, min = 0, max = pi/3)
+theta.hat <- \hlkwd{mean}(\hlkwd{sin}(x)) * (pi/3)
+theta <- \hlkwd{cos}(0) - \hlkwd{cos}(pi/3)  \hlcom{#could just set this to .5 but shwowing the calc to be clear}
+theta.hat - theta
+\end{alltt}
+\begin{verbatim}
+## [1] 0.001851
+\end{verbatim}
+\begin{alltt}
+\hlkwd{rm}(theta.hat, theta, x)
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+
+Not impressively accurate with 10,000 samples.
+
+\item[5.3] Monte Carlo estimate of $\int_0^{0.5} e^{-x}dx$ with a uniform and exponential.  Since the integrand is a pdf we can estimate directly by taking sample, $Y$, from this pdf and applying the indicator function $I(Y \leq x)$.\\
+\begin{kframe}
+\begin{alltt}
+x <- \hlkwd{runif}(m, min = 0, max = 0.5)
+y <- \hlkwd{rexp}(m) <= 0.5
+theta.hat <- 0.5 * \hlkwd{mean}(\hlkwd{exp}(-x))
+theta.star <- \hlkwd{mean}(y)
+var.theta.hat <- (0.25/m) * \hlkwd{var}(\hlkwd{exp}(-x))
+var.theta.star <- (theta.star * (1 - theta.star))/m
+r <- \hlkwd{matrix}(\hlkwd{c}(theta.hat, theta.star, var.theta.hat, var.theta.star), 2, 2)
+\hlkwd{rownames}(r) <- \hlkwd{c}(\hlstr{"theta.hat"}, \hlstr{"theta.star"})
+\hlkwd{colnames}(r) <- \hlkwd{c}(\hlstr{"Theta"}, \hlstr{"Var.Theta"})
+tbl1 <- \hlkwd{xtable}(r, caption = \hlstr{"The estimates and estimated variances from two estimates of theta."})
+\hlkwd{digits}(tbl1) <- 10
+\hlkwd{print}(tbl1)
+\end{alltt}
+\end{kframe}% latex table generated in R 2.15.3 by xtable 1.7-1 package
+% Sun Mar 02 21:22:06 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & Theta & Var.Theta \\ 
+  \hline
+theta.hat & 0.3940505503 & 0.0000003238 \\ 
+  theta.star & 0.3926000000 & 0.0000238465 \\ 
+   \hline
+\end{tabular}
+\caption{The estimates and estimated variances from two estimates of theta.} 
+\end{table}
+\begin{kframe}\begin{alltt}
+\hlkwd{rm}(x, y, theta.hat, theta.star, var.theta.hat, var.theta.star, r, tbl1)
+\end{alltt}
+\end{kframe}
+
+Since the inegrand is close to .5 the variance of the binomial is maximized and the indicator estimate has a large variance.
+
+\item[5.4]  Function for cdf of Beta(3,3) = $\int_0^y 30x^2(1-x)^2dx$.\\
+\begin{kframe}
+\begin{alltt}
+betacdf <- \hlkwd{function}(x, m) \{
+    theta <- \hlkwd{rep}(0, \hlkwd{length}(x))
+    \hlkwd{for} (i in 1:\hlkwd{length}(x)) \{
+        u <- \hlkwd{rbeta}(m, 3, 3) <= x[i]
+        theta[i] <- \hlkwd{mean}(u)  \hlcom{#(30*u^2*(1-u)^2)*x}
+    \}
+    \hlkwd{return}(theta)
+\}
+x <- \hlkwd{seq}(0, 1, 0.1)
+r <- \hlkwd{matrix}(\hlkwd{c}(\hlkwd{betacdf}(x = x, m = 1e+06), \hlkwd{pbeta}(x, 3, 3)), 2, 11, byrow = TRUE)
+\hlkwd{colnames}(r) <- x
+\hlkwd{rownames}(r) <- \hlkwd{c}(\hlstr{"My function"}, \hlstr{"R function"})
+tbl <- \hlkwd{xtable}(r, caption = \hlstr{"The estimates from a simple mote-carlo estimate and the R function."})
+\hlkwd{digits}(tbl) <- 4
+\hlkwd{print}(tbl)
+\end{alltt}
+\end{kframe}% latex table generated in R 2.15.3 by xtable 1.7-1 package
+% Sun Mar 02 21:22:09 2014
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrrrrrrrrr}
+  \hline
+ & 0 & 0.1 & 0.2 & 0.3 & 0.4 & 0.5 & 0.6 & 0.7 & 0.8 & 0.9 & 1 \\ 
+  \hline
+My function & 0.0000 & 0.0085 & 0.0579 & 0.1622 & 0.3179 & 0.4994 & 0.6833 & 0.8367 & 0.9423 & 0.9914 & 1.0000 \\ 
+  R function & 0.0000 & 0.0086 & 0.0579 & 0.1631 & 0.3174 & 0.5000 & 0.6826 & 0.8369 & 0.9421 & 0.9914 & 1.0000 \\ 
+   \hline
+\end{tabular}
+\caption{The estimates from a simple mote-carlo estimate and the R function.} 
+\end{table}
+\begin{kframe}\begin{alltt}
+\hlkwd{rm}(x, r, tbl)
+\end{alltt}
+\end{kframe}
+
+My function does a pretty good job.\\
+
+\item[5.6]  Improvement in antithetic estimation of $\int_0^1e^xdx$.\\
+$$Var\left(\frac{e^u+e^{1-u}}{2}\right)=\frac{1}{4}\left[Var(e^u)+Var(e^{1-u})+2Cov(e^u,e^{1-u})\right]$$
+$$=\frac{1}{4}\left[2Var(e^u)+2\left(Ee^ue^{1-u}-Ee^uEe^{1-u}\right)\right]$$
+$$Note:Ee^ue^{1-u}=Ee=e$$
+$$Also:Ee^{1-u}=\int_0^1e^{1-u}du=\left. -e^{1-u}\right|_0^1 = -e^0+e^1 = e-1 = Ee^u$$
+Therefore:
+$$Var\left(\frac{e^u+e^{1-u}}{2}\right) =\frac{1}{4}\left[2Var(e^u)+2\left(e-(e-1)^2\right)\right]$$
+$$ = \frac{1}{2} \left[ \left(\frac{e^2-1}{2}-(e-1)^2\right)+\left(e-(e-1)^2\right)\right]$$
+This is computed below
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{print}(v.anti <- 0.5 * (((\hlkwd{exp}(1)^2 - 1)/2) - (\hlkwd{exp}(1) - 1)^2 + (\hlkwd{exp}(1) - ((\hlkwd{exp}(1) - 
+    1)^2))))
+\end{alltt}
+\begin{verbatim}
+## [1] 0.003912
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+From the book the variance of the simple Monte Carlo estimate is 0.1210178 so the variance reduction is:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+100 * ((0.1210178 - v.anti)/0.1210178)
+\end{alltt}
+\begin{verbatim}
+## [1] 96.77
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+
+\item[5.7]
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+anti <- \hlkwd{function}(m) \{
+\hlcom{    #function to comput the antithetic estimate}
+    u <- \hlkwd{runif}(m/2)
+    v <- 1 - u
+    theta <- \hlkwd{mean}((\hlkwd{exp}(u) + \hlkwd{exp}(v))/2)
+    v <- \hlkwd{var}((\hlkwd{exp}(u) + \hlkwd{exp}(v))/2)
+    \hlkwd{return}(\hlkwd{c}(theta, v))
+\}
+theta.ant <- \hlkwd{anti}(m = m)
+simple <- \hlkwd{function}(m) \{
+\hlcom{    #function to comput the simple estimate}
+    u <- \hlkwd{runif}(m/2)
+    v <- \hlkwd{runif}(m/2)
+    theta <- \hlkwd{mean}((\hlkwd{exp}(u) + \hlkwd{exp}(v))/2)
+    v <- \hlkwd{var}((\hlkwd{exp}(u) + \hlkwd{exp}(v))/2)
+    \hlkwd{return}(\hlkwd{c}(theta, v))
+\}
+theta.simp <- \hlkwd{simple}(m = m)
+theta.ant[1]  \hlcom{#estimate}
+\end{alltt}
+\begin{verbatim}
+## [1] 1.718
+\end{verbatim}
+\begin{alltt}
+theta.simp[1]
+\end{alltt}
+\begin{verbatim}
+## [1] 1.719
+\end{verbatim}
+\begin{alltt}
+theta.ant[2]
+\end{alltt}
+\begin{verbatim}
+## [1] 0.00394
+\end{verbatim}
+\begin{alltt}
+theta.simp[2]
+\end{alltt}
+\begin{verbatim}
+## [1] 0.1202
+\end{verbatim}
+\begin{alltt}
+
+reduction <- 100 * ((theta.simp[2] - theta.ant[2])/theta.simp[2])  \hlcom{#reduction in the variance of the means}
+reduction
+\end{alltt}
+\begin{verbatim}
+## [1] 96.72
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\item[5.8] Show that $\rho(X,X^{\prime})=-1$.\\
+$$\rho(X,X^{\prime})= \frac{Cov(X,X^{\prime})}{\sqrt{Var(X)Var(x^{\prime})}} = \frac{Cov(aU,a(1-U))}{sqrt{Var(aU)Var(a(1-U))}}$$
+
+$$ = \frac{E\left[aU(a(1-U))\right]-E(aU)E(a(1-U))}{\sqrt{a^2Var(U)a^2Var(1-U)}} = \frac{a^2E(U-U^2)-aEU(a-aEU)}{a^2Var(U)}$$
+ 
+$$ = \frac{a^2EU-a^2EU^2-\left[ a^2EU - a^2(EU)^2\right]}{a^2Var(U)} = \frac{EU-EU^2-EU-(EU)^2}{Var(U)} = \frac{-EU^2+(EU^2)}{Var(U)}$$
+ 
+$$ = \frac{-1(Var(U))}{Var(U)} = -1$$
+ 
+The result would hold for any random variable with exisitng first and second moments.\\
+
+\item[5.14] Obtain a Monte Carlo estimate of $\int_1^{\inf}\frac{x^2}{\sqrt{2\pi}}e^{-x^2/2}dx$ by importance sampling.\\
+I will use the pareto as my weighting distribution because it is the only distribution I could find in the back of Casella and Berger that could have the same support.\\
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{require}(VGAM)
+p <- \hlkwd{rpareto}(m, 1, 1)
+g <- \hlkwd{function}(x) ((x^2)/\hlkwd{sqrt}(2 * pi)) * \hlkwd{exp}(-x^2/2)
+fg <- \hlkwd{g}(p)/\hlkwd{dpareto}(p, 1, 1)
+theta.hat <- \hlkwd{mean}(fg)
+theta.hat
+\end{alltt}
+\begin{verbatim}
+## [1] 0.4036
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+
+\end{itemize}
+\end{document}

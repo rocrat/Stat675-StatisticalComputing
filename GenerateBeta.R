@@ -1,0 +1,14 @@
+set.seed(12)
+n<-1000
+j<-0
+k<-0
+x<-numeric(n)
+while(k<n){
+  u<-runif(1)
+  j<-j+1
+  y=runif(1)
+  if(u<=4*y*(1-y)){
+    k=k+1
+    x[k]<-y
+  }
+}

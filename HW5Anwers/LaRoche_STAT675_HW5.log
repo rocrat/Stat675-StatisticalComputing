@@ -1,0 +1,324 @@
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.8.22)  20 APR 2014 13:54
+entering extended mode
+**LaRoche_STAT675_HW5.tex
+
+("C:\Users\dominic\Documents\StatsGIDP\Statistics papers and courses\STAT675-St
+atisticalComputing\HW5Anwers\LaRoche_STAT675_HW5.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\Users\dominic\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen105
+\fb@frh=\dimen106
+\FrameRule=\dimen107
+\FrameSep=\dimen108
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(C:\Users\dominic\AppData\Roaming\MiKTeX\2.9\tex\latex\preprint\fullpage.sty
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip44
+)
+(C:\Users\dominic\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+("C:\Users\dominic\Documents\StatsGIDP\Statistics papers and courses\STAT675-St
+atisticalComputing\HW5Anwers\LaRoche_STAT675_HW5.aux")
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+
+(C:\Users\dominic\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen109
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen110
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 65.
+<figure/ten11.pdf, id=1, 505.89pt x 505.89pt>
+File: figure/ten11.pdf Graphic file (type pdf)
+ <use figure/ten11.pdf>
+Package pdftex.def Info: figure/ten11.pdf used on input line 81.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+ [1
+
+{C:/Users/dominic/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+<figure/ten12.pdf, id=10, 505.89pt x 505.89pt>
+File: figure/ten12.pdf Graphic file (type pdf)
+ <use figure/ten12.pdf>
+Package pdftex.def Info: figure/ten12.pdf used on input line 99.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+ [2 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675
+-StatisticalComputing/HW5Anwers/figure/ten11.pdf>]
+Overfull \hbox (11.99103pt too wide) in paragraph at lines 108--108
+[]\OT1/cmtt/m/n/10 compare.sturges <- []rbind[](h.sturges$breaks[[]which[](h.st
+urges$breaks <= []max[]([]qlnorm[]([]seq[](0.1,[] 
+ []
+
+
+Overfull \hbox (17.24098pt too wide) in paragraph at lines 110--110
+[]    \OT1/cmtt/m/n/10 0.9, 0.1))))], []dlnorm[](h.sturges$breaks[[]which[](h.s
+turges$breaks <= []max[]([]qlnorm[]([]seq[](0.1,[] 
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 112
+.
+(C:/PROGRA~1/R/R-215~1.3/share/texmf/tex/latex\omscmtt.fd
+File: omscmtt.fd 
+)
+LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+
+Overfull \hbox (168.98978pt too wide) in paragraph at lines 112--112
+[][]\OT1/cmtt/m/n/10 rownames[](compare.doane) <- []rownames[](compare.sturges)
+ <- []c[]([]"Breaks within the first 90\OMS/cmsy/m/n/10 nn\OT1/cmtt/m/n/10 % of
+ the theoretical density"[],[] 
+ []
+
+
+Overfull \hbox (95.9903pt too wide) in paragraph at lines 114--114
+[][]\OT1/cmtt/m/n/10 xtable[](compare.sturges, caption = []"Comparison of the S
+turges density estimate with theoretical values"[])[] 
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 120.
+[3 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675-
+StatisticalComputing/HW5Anwers/figure/ten12.pdf>]
+Overfull \hbox (153.73979pt too wide) in paragraph at lines 132--132
+[][]\OT1/cmtt/m/n/10 xtable[](compare.doane, caption = []"Comparison of the Doa
+ne corrected density estimates with the theoretical values"[])[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 158.
+<figure/ten6.pdf, id=29, 505.89pt x 505.89pt>
+File: figure/ten6.pdf Graphic file (type pdf)
+ <use figure/ten6.pdf>
+Package pdftex.def Info: figure/ten6.pdf used on input line 184.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 189--190
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 192.
+
+Overfull \hbox (48.7407pt too wide) in paragraph at lines 206--206
+[]        []\OT1/cmtt/m/n/10 plot[]([]density[](buffalo, bw = []paste0[](bws[j]
+), kernel = []paste0[](kern)), main = []paste0[](kern,[] 
+ []
+
+[5 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675-
+StatisticalComputing/HW5Anwers/figure/ten6.pdf>]
+<figure/ten81.pdf, id=41, 505.89pt x 505.89pt>
+File: figure/ten81.pdf Graphic file (type pdf)
+ <use figure/ten81.pdf>
+Package pdftex.def Info: figure/ten81.pdf used on input line 214.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+
+<figure/ten82.pdf, id=42, 505.89pt x 505.89pt>
+File: figure/ten82.pdf Graphic file (type pdf)
+ <use figure/ten82.pdf>
+Package pdftex.def Info: figure/ten82.pdf used on input line 216.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+ [6 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675
+-StatisticalComputing/HW5Anwers/figure/ten81.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 225.
+
+Overfull \hbox (32.99084pt too wide) in paragraph at lines 233--233
+[]    []\OT1/cmtt/m/n/10 plot[]([]density[](x, bw = []paste0[](bws[i]), kernel 
+= []"gaussian"[]), main = []paste0[]([]"bandwidth= "[],[] 
+ []
+
+
+Overfull \hbox (6.74107pt too wide) in paragraph at lines 235--235
+[]    []\OT1/cmtt/m/n/10 curve[](0.5 * []dnorm[](x, 0, 1) + 0.5 * []dnorm[](x, 
+3, 1), xlim = []c[](-4, 6.5), col = []"red"[],[] 
+ []
+
+[7 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675-
+StatisticalComputing/HW5Anwers/figure/ten82.pdf>]
+<figure/ten9.pdf, id=62, 505.89pt x 505.89pt>
+File: figure/ten9.pdf Graphic file (type pdf)
+ <use figure/ten9.pdf>
+Package pdftex.def Info: figure/ten9.pdf used on input line 240.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 252.
+[8 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675-
+StatisticalComputing/HW5Anwers/figure/ten9.pdf>]
+Overfull \hbox (232.4891pt too wide) in paragraph at lines 254--254
+[]\OT1/cmtt/m/n/10 dat <- []read.csv[]([]"C:/Users/dominic/Documents/StatsGIDP/
+Statistics papers and courses/STAT675-StatisticalComputing/ToraasonA2.csv"[])[]
+ 
+ []
+
+<figure/tena1.pdf, id=72, 505.89pt x 505.89pt>
+File: figure/tena1.pdf Graphic file (type pdf)
+ <use figure/tena1.pdf>
+Package pdftex.def Info: figure/tena1.pdf used on input line 259.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+
+<figure/tena2.pdf, id=73, 505.89pt x 505.89pt>
+File: figure/tena2.pdf Graphic file (type pdf)
+ <use figure/tena2.pdf>
+Package pdftex.def Info: figure/tena2.pdf used on input line 265.
+(pdftex.def)             Requested size: 444.75499pt x 444.76001pt.
+ [9 <C:/Users/dominic/Documents/StatsGIDP/Statistics papers and courses/STAT675
+-StatisticalComputing/HW5Anwers/figure/tena1.pdf>] [10 <C:/Users/dominic/Docume
+nts/StatsGIDP/Statistics papers and courses/STAT675-StatisticalComputing/HW5Anw
+ers/figure/tena2.pdf>]
+("C:\Users\dominic\Documents\StatsGIDP\Statistics papers and courses\STAT675-St
+atisticalComputing\HW5Anwers\LaRoche_STAT675_HW5.aux") ) 
+Here is how much of TeX's memory you used:
+ 1343 strings out of 494045
+ 19314 string characters out of 3145963
+ 72990 words of memory out of 3000000
+ 4650 multiletter control sequences out of 15000+200000
+ 3976 words of font info for 16 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
+ 27i,9n,19p,320b,326s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Program Files (x86)/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on LaRoche_STAT675_HW5.pdf (10 pages, 157810 bytes).
+PDF statistics:
+ 104 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+
